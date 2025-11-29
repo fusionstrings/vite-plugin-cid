@@ -1,11 +1,11 @@
-# CID Vite Plugin
+# Vite Plugin CID
 
 A Vite plugin that uses Content Identifiers (CID) as hashes for build assets,
 enabling true content-addressed immutable builds perfect for decentralized web
 deployment.
 
-[![JSR](https://jsr.io/badges/@fusionstrings/cid-vite-plugin)](https://jsr.io/@fusionstrings/cid-vite-plugin)
-[![JSR Score](https://jsr.io/badges/@fusionstrings/cid-vite-plugin/score)](https://jsr.io/@fusionstrings/cid-vite-plugin)
+[![JSR](https://jsr.io/badges/@fusionstrings/vite-plugin-cid)](https://jsr.io/@fusionstrings/vite-plugin-cid)
+[![JSR Score](https://jsr.io/badges/@fusionstrings/vite-plugin-cid/score)](https://jsr.io/@fusionstrings/vite-plugin-cid)
 
 ## Features
 
@@ -26,20 +26,20 @@ deployment.
 ### Deno (JSR)
 
 ```typescript
-import { cidVitePlugin } from "jsr:@fusionstrings/cid-vite-plugin";
+import { cidVitePlugin } from "jsr:@fusionstrings/vite-plugin-cid";
 ```
 
 ### Node.js (npm/pnpm/yarn)
 
 ```bash
 # Using JSR with npm
-npx jsr add @fusionstrings/cid-vite-plugin
+npx jsr add @fusionstrings/vite-plugin-cid
 
 # Using JSR with pnpm
-pnpm dlx jsr add @fusionstrings/cid-vite-plugin
+pnpm dlx jsr add @fusionstrings/vite-plugin-cid
 
 # Using JSR with yarn
-yarn dlx jsr add @fusionstrings/cid-vite-plugin
+yarn dlx jsr add @fusionstrings/vite-plugin-cid
 ```
 
 ## Usage
@@ -48,7 +48,7 @@ Add the plugin to your `vite.config.ts`:
 
 ```typescript
 import { defineConfig } from "vite";
-import { cidVitePlugin } from "@fusionstrings/cid-vite-plugin";
+import { cidVitePlugin } from "@fusionstrings/vite-plugin-cid";
 
 export default defineConfig({
 	plugins: [
@@ -125,8 +125,8 @@ deno task docs
 
 ## Documentation
 
-- [API Documentation](https://fusionstrings.github.io/cid-vite-plugin/)
-- [JSR Package](https://jsr.io/@fusionstrings/cid-vite-plugin)
+- [API Documentation](https://fusionstrings.github.io/vite-plugin-cid/)
+- [JSR Package](https://jsr.io/@fusionstrings/vite-plugin-cid)
 
 ## Publishing
 

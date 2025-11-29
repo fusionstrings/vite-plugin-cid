@@ -15,17 +15,17 @@
  *
  * ```bash
  * # Using Deno
- * deno add jsr:@fusionstrings/cid-vite-plugin
+ * deno add jsr:@fusionstrings/vite-plugin-cid
  *
  * # Using npm
- * npx jsr add @fusionstrings/cid-vite-plugin
+ * npx jsr add @fusionstrings/vite-plugin-cid
  * ```
  *
  * ## Quick Start
  *
  * ```typescript
  * import { defineConfig } from 'vite';
- * import { cidVitePlugin } from '@fusionstrings/cid-vite-plugin';
+ * import { cidVitePlugin } from '@fusionstrings/vite-plugin-cid';
  *
  * export default defineConfig({
  *   plugins: [cidVitePlugin()],

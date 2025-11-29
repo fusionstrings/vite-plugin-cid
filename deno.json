@@ -1,5 +1,5 @@
 {
-	"name": "@fusionstrings/cid-vite-plugin",
+	"name": "@fusionstrings/vite-plugin-cid",
 	"version": "0.0.1",
 	"exports": "./src/index.ts",
 	"tasks": {

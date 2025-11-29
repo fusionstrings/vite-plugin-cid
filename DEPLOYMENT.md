@@ -46,19 +46,19 @@ deno run --allow-net --allow-read https://deno.land/std/http/file_server.ts docs
 ### From JSR (Deno)
 
 ```typescript
-import { cidVitePlugin } from "jsr:@fusionstrings/cid-vite-plugin";
+import { cidVitePlugin } from "jsr:@fusionstrings/vite-plugin-cid";
 ```
 
 ### From JSR (Node.js)
 
 ```bash
-npx jsr add @fusionstrings/cid-vite-plugin
+npx jsr add @fusionstrings/vite-plugin-cid
 ```
 
 Then in your code:
 
 ```typescript
-import { cidVitePlugin } from "@fusionstrings/cid-vite-plugin";
+import { cidVitePlugin } from "@fusionstrings/vite-plugin-cid";
 ```
 
 ## CI/CD Workflows
