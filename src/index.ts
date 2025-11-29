@@ -3,10 +3,6 @@
  *
  * A Vite plugin that renames build outputs using Content Identifiers (CID).
  *
- * This package provides a Vite plugin that transforms build output filenames into
- * content-addressed CIDs, making them compatible with IPFS and other decentralized
- * storage systems.
- *
  * ## Features
  *
  * - **Content-Addressed Naming**: All build outputs are renamed using CIDv1 (SHA-256, base32)
@@ -36,18 +32,6 @@
  * });
  * ```
  *
- * ## IPFS Deployment
- *
- * For IPFS deployment, use relative paths:
- *
- * ```typescript
- * export default defineConfig({
- *   base: './',
- *   build: { manifest: true },
- *   plugins: [cidVitePlugin()],
- * });
- * ```
- *
  * @module
  */
 
@@ -68,11 +52,7 @@ interface ViteOutputChunk extends OutputChunk {
 }
 
 /**
- * Creates a Vite plugin that renames build output files using Content Identifiers (CID).
- *
- * The plugin hooks into Vite's build process to rename all generated assets
- * (JavaScript, CSS, images, etc.) with content-addressed CID hashes derived from
- * SHA-256 and encoded in base32 format.
+ * Creates a Vite plugin that renames build output files using CIDs.
  *
  * @remarks
  * The plugin operates in two phases:
@@ -90,61 +70,7 @@ interface ViteOutputChunk extends OutputChunk {
  *
  * @returns A Vite {@link https://vitejs.dev/guide/api-plugin.html | Plugin} instance
  *
- * @example Basic usage
- * ```typescript
- * import { defineConfig } from 'vite';
- * import { cidVitePlugin } from '@fusionstrings/cid-vite-plugin';
- *
- * export default defineConfig({
- *   plugins: [cidVitePlugin()],
- * });
- * ```
- *
- * @example With other plugins
- * ```typescript
- * import { defineConfig } from 'vite';
- * import react from '@vitejs/plugin-react';
- * import { cidVitePlugin } from '@fusionstrings/cid-vite-plugin';
- *
- * export default defineConfig({
- *   plugins: [react(), cidVitePlugin()],
- * });
- * ```
- *
- * @example Multi-page application
- * ```typescript
- * import { defineConfig } from 'vite';
- * import { cidVitePlugin } from '@fusionstrings/cid-vite-plugin';
- *
- * export default defineConfig({
- *   build: {
- *     rollupOptions: {
- *       input: {
- *         main: 'index.html',
- *         admin: 'admin.html',
- *       },
- *     },
- *   },
- *   plugins: [cidVitePlugin()],
- * });
- * ```
- *
- * @example IPFS deployment configuration
- * ```typescript
- * import { defineConfig } from 'vite';
- * import { cidVitePlugin } from '@fusionstrings/cid-vite-plugin';
- *
- * export default defineConfig({
- *   base: './',
- *   build: {
- *     manifest: true,
- *   },
- *   plugins: [cidVitePlugin()],
- * });
- * ```
- *
  * @see {@link generateCID} for the underlying CID generation function
- * @see {@link https://docs.ipfs.tech/concepts/content-addressing/ | IPFS Content Addressing}
  *
  * @public
  */
