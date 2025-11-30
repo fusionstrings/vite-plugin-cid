@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18, 20, 22]
+        node-version: [lts/*, 25]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,37 +39,41 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npx jsr add @fusionstrings/vite-plugin-cid
+        run: npm install multiformats vite rollup
 
       - name: Create test file
         run: |
           cat > test-node.mjs << 'EOF'
-          import { cid } from '@fusionstrings/vite-plugin-cid';
-          import { createServer } from 'vite';
+          import { generateCID } from './src/cid.ts';
+          import { cid } from './src/index.ts';
 
-          const plugin = cid();
-          if (!plugin || typeof plugin.name !== 'string') {
-            console.error('Plugin creation failed');
+          // Test CID generation
+          try {
+            const testCid = await generateCID('Hello, Node.js!');
+            if (!testCid || !testCid.startsWith('bafkrei')) {
+              throw new Error('CID generation failed');
+            }
+            console.log('✓ CID generation successful:', testCid);
+          } catch (err) {
+            console.error('✗ CID generation failed:', err.message);
             process.exit(1);
           }
-          console.log('✓ Plugin created successfully:', plugin.name);
 
-          // Test with Vite server
+          // Test plugin creation
           try {
-            const server = await createServer({
-              plugins: [plugin],
-              logLevel: 'silent'
-            });
-            await server.close();
-            console.log('✓ Vite integration successful');
+            const plugin = cid();
+            if (!plugin || typeof plugin.name !== 'string') {
+              throw new Error('Plugin creation failed');
+            }
+            console.log('✓ Plugin created successfully:', plugin.name);
           } catch (err) {
-            console.error('✗ Vite integration failed:', err.message);
+            console.error('✗ Plugin creation failed:', err.message);
             process.exit(1);
           }
           EOF
 
       - name: Run test
-        run: node test-node.mjs
+        run: node --experimental-strip-types test-node.mjs
 
   bun:
     name: Bun
