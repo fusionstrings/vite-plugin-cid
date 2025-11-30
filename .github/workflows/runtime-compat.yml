@@ -97,7 +97,7 @@ jobs:
       - name: Create test file
         run: |
           cat > test-bun.ts << 'EOF'
-          import { generateCID } from '@fusionstrings/vite-plugin-cid/cid';
+          import { generateCID } from './src/cid.ts';
           import { cid } from './src/index.ts';
 
           // Test CID generation
@@ -158,7 +158,7 @@ jobs:
           EOF
 
           cat > worker.ts << 'EOF'
-          import { generateCID } from '@fusionstrings/vite-plugin-cid/cid';
+          import { generateCID } from './src/cid.ts';
 
           export default {
             async fetch(request: Request, env: any, ctx: any) {
