@@ -119,7 +119,7 @@ Deno.test({
 				}
 			}
 		} finally {
-			await Deno.remove(tempDir, { recursive: true }).catch(() => { });
+			await Deno.remove(tempDir, { recursive: true }).catch(() => {});
 		}
 	},
 });
