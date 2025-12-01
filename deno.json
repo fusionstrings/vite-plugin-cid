@@ -8,7 +8,9 @@
 	"compilerOptions": {
 		"lib": [
 			"dom",
-			"esnext"
+			"esnext",
+      "deno.ns",
+			"deno.unstable"
 		]
 	},
 	"license": "MIT",
