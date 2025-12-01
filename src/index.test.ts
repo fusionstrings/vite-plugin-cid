@@ -74,6 +74,7 @@ Deno.test({
 				files.push(name);
 			}
 
+			// Find CSS and JS files by extension
 			const cssFile = files.find((f) => f.endsWith(".css"));
 			const jsFile = files.find((f) => f.endsWith(".js"));
 
@@ -118,7 +119,7 @@ Deno.test({
 				}
 			}
 		} finally {
-			await Deno.remove(tempDir, { recursive: true }).catch(() => {});
+			await Deno.remove(tempDir, { recursive: true }).catch(() => { });
 		}
 	},
 });

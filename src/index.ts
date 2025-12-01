@@ -248,18 +248,8 @@ export function cid(): Plugin {
 				}
 
 				item.source = content;
-
-				const cid = await generateCID(content);
-				const ext = path.extname(fileName);
-				const dir = path.dirname(fileName);
-				const newFileName = path.join(dir, `${cid}${ext}`);
-
-				if (newFileName !== fileName) {
-					item.fileName = newFileName;
-					delete bundle[fileName];
-					bundle[newFileName] = item;
-					fileMap.set(fileName, newFileName);
-				}
+				// Note: We do NOT rename manifest files themselves
+				// They should keep their original names (.vite/manifest.json, etc.)
 			}
 		},
 

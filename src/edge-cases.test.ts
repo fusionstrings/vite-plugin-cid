@@ -79,7 +79,7 @@ Deno.test({
 				assertMatch(basename, /^bafkrei/);
 			}
 		} finally {
-			await Deno.remove(tempDir, { recursive: true }).catch(() => {});
+			await Deno.remove(tempDir, { recursive: true }).catch(() => { });
 		}
 	},
 });
@@ -156,7 +156,7 @@ Deno.test({
 				assertMatch(cssContent, /url\([^)]*bafkrei[^)]*\)/);
 			}
 		} finally {
-			await Deno.remove(tempDir, { recursive: true }).catch(() => {});
+			await Deno.remove(tempDir, { recursive: true }).catch(() => { });
 		}
 	},
 });
@@ -202,7 +202,7 @@ Deno.test({
 			}
 			assert(files.length > 0);
 		} finally {
-			await Deno.remove(tempDir, { recursive: true }).catch(() => {});
+			await Deno.remove(tempDir, { recursive: true }).catch(() => { });
 		}
 	},
 });
@@ -276,7 +276,7 @@ Deno.test({
 				}
 			}
 		} finally {
-			await Deno.remove(tempDir, { recursive: true }).catch(() => {});
+			await Deno.remove(tempDir, { recursive: true }).catch(() => { });
 		}
 	},
 });

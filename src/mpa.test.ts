@@ -102,7 +102,7 @@ Deno.test({
 			const jsBasename = path.basename(jsFiles[0]);
 			assertMatch(jsBasename, /^bafkrei/);
 		} finally {
-			await Deno.remove(tempDir, { recursive: true }).catch(() => {});
+			await Deno.remove(tempDir, { recursive: true }).catch(() => { });
 		}
 	},
 });
